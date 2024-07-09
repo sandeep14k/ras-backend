@@ -98,6 +98,12 @@ type StudentRecruitmentCycle struct {
 	IsVerified                   bool                        `json:"is_verified" gorm:"default:false"`
 	Comment                      string                      `json:"comment"`
 }
+type ResumeType string
+
+const (
+	SINGLE ResumeType = "Single"
+	MASTER ResumeType = "Master"
+)
 
 type StudentRecruitmentCycleResume struct {
 	gorm.Model
@@ -108,4 +114,5 @@ type StudentRecruitmentCycleResume struct {
 	Resume                    string                  `json:"resume"`
 	Verified                  sql.NullBool            `json:"verified" gorm:"default:NULL"`
 	ActionTakenBy             string                  `json:"action_taken_by"`
+	ResumeType                ResumeType              `json:"resume_type"` // New field
 }
